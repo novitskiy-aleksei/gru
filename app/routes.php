@@ -141,4 +141,4 @@ Route::post('contact-us', 'ContactUsController@postIndex');
 Route::get('blog/{postSlug}', array('as' => 'view-post', 'uses' => 'BlogController@getView'));
 Route::post('blog/{postSlug}', 'BlogController@postView');
 
-Route::get('/', array('as' => 'home', 'uses' => 'BlogController@getIndex'));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
