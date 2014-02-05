@@ -1,112 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Basic Page Needs
-		================================================== -->
-		<meta charset="utf-8" />
-		<title>
-			@section('title')
-			Bootstrap
-			@show
-		</title>
-		<meta name="keywords" content="your, awesome, keywords, here" />
-		<meta name="author" content="Jon Doe" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8"/>
+    <title>
+        @section('title')
+        Bootstrap
+        @show
+    </title>
+    <link rel="image_src" href="/images/notify_better_image.png"/>
 
-		<!-- Mobile Specific Metas
-		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="http://www.thepetedesign.com/demos/onepage_scroll_demo.html" property="og:url"/>
+    <meta content="http://www.thepetedesign.com/images/onepage_scroll_image.png" property="og:image"/>
+    <link rel="shortcut icon" id="favicon" href="favicon.png">
+    <meta name="author" content="Pete R.">
+    <link rel="canonical" href="http://www.thepetedesign.com/demos/onepage_scroll_demo.html"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
 
-		<!-- CSS
-		================================================== -->
-		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/onepage-scroll.css') }}">
 
-		<style>
-		@section('styles')
-		body {
-			padding: 10px 0;
-		}
-		@show
-		</style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="{{ asset('assets/js/jquery.onepage-scroll.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+    <meta name="viewport"
+          content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
-		<!-- Favicons
-		================================================== -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}">
-		<link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png') }}">
-	</head>
+</head>
 
-	<body>
-		<!-- Container -->
-		<div class="container">
-			<!-- Navbar -->
-			<div class="navbar navbar-default navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
+<body>
+    <div class="main">
 
-						<div class="nav-collapse collapse">
-							<ul class="nav">
-								<li {{ (Request::is('/') ? 'class="active"' : '') }}><a href="{{ route('home') }}"><i class="icon-home icon-white"></i> Home</a></li>
-								<li {{ (Request::is('about-us') ? 'class="active"' : '') }}><a href="{{ URL::to('about-us') }}"><i class="icon-file icon-white"></i> About us</a></li>
-								<li {{ (Request::is('contact-us') ? 'class="active"' : '') }}><a href="{{ URL::to('contact-us') }}"><i class="icon-file icon-white"></i> Contact us</a></li>
-							</ul>
+        <section class="page1">
+            <div class="page_container">
+                <h1>One Page Scroll</h1>
 
-							<ul class="nav pull-right">
-								@if (Sentry::check())
+                <h2>Create an Apple-like one page scroller website (iPhone 5S website) with One Page Scroll plugin</h2>
 
-								<li class="dropdown{{ (Request::is('account*') ? ' active' : '') }}">
-									<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="{{ route('account') }}">
-										Welcome, {{ Sentry::getUser()->first_name }}
-										<b class="caret"></b>
-									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-										@if(Sentry::getUser()->hasAccess('admin'))
-										<li><a href="{{ route('admin') }}"><i class="icon-cog"></i> Administration</a></li>
-										@endif
-										<li{{ (Request::is('account/profile') ? ' class="active"' : '') }}><a href="{{ route('profile') }}"><i class="icon-user"></i> Your profile</a></li>
-										<li class="divider"></li>
-										<li><a href="{{ route('logout') }}"><i class="icon-off"></i> Logout</a></li>
-									</ul>
-								</li>
-								@else
-								<li {{ (Request::is('auth/signin') ? 'class="active"' : '') }}><a href="{{ route('signin') }}">Sign in</a></li>
-								<li {{ (Request::is('auth/signup') ? 'class="active"' : '') }}><a href="{{ route('signup') }}">Sign up</a></li>
-								@endif
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+                <p class="credit">Created by <a href="http://www.thepetedesign.com">Pete R.</a>, Founder of <a
+                        href="http://www.bucketlistly.com" target="_blank">BucketListly</a></p>
 
-			<!-- Notifications -->
-			@include('frontend/notifications')
+                <div class="btns">
+                    <a class="reload btn" href="https://github.com/peachananr/onepage-scroll">Download on Github</a>
+                </div>
+            </div>
+            <img src="/assets/img/phones.png" alt="phones">
+        </section>
 
-			<!-- Content -->
-			@yield('content')
+        <section class="page2">
+            <div class="page_container">
+                <h1>Ready-to-use plugin</h1>
 
-			<hr />
+                <h2>All you need is an HTML markup, call the script and BAM!</h2>
+                <code class="html">
+                    &lt;div class="main"&gt;<br>
+                    &lt;section&gt;...&lt;/section&gt;<br>
+                    &lt;section&gt;...&lt;/section&gt;<br>
+                    ...<br>
+                    &lt;/div&gt;
+                </code>
 
-			<!-- Footer -->
-			<footer>
-				<p>&copy; Company {{ date('Y') }}</p>
-			</footer>
-		</div>
+                <code class="js">
+                    $(".main").onepage_scroll();
+                </code>
+            </div>
+        </section>
 
-		<!-- Javascripts
-		================================================== -->
-		<script src="{{ asset('assets/js/jquery.1.10.2.min.js') }}"></script>
-		<script src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
-	</body>
+        <section class="page3">
+            <div class="page_container">
+                <h1>Pretty Neat Eh?</h1>
+
+                <h2>You can customise the animation timing, the selector or even the animation easing using CSS3. I
+                    can't wait to see what you guys will come up with. Don't forget to grab them for free on
+                    Github'</h2>
+
+                <div class="btns">
+                    <a class="reload btn" href="https://github.com/peachananr/onepage-scroll">Download on Github</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <a class="back" href="http://www.thepetedesign.com/#design">Back to The Pete Design</a>
+    <a href="https://github.com/peachananr/onepage-scroll"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                                                src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+                                                                alt="Fork me on GitHub"></a>
+
+    <!-- Notifications -->
+    @include('frontend/notifications')
+
+    <!-- Content -->
+    @yield('content')
+
+    <hr/>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Company {{ date('Y') }}</p>
+    </footer>
+
+<!-- Javascripts
+================================================== -->
+</body>
 </html>
