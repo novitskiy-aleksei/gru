@@ -1,4 +1,4 @@
-@extends('frontend/layouts/default')
+@extends('frontend/layouts/auth')
 
 {{-- Page title --}}
 @section('title')
@@ -8,53 +8,38 @@ Account Sign in ::
 
 {{-- Page content --}}
 @section('content')
-<div class="page-header">
-	<h3>Sign in into your account</h3>
-</div>
-<div class="row">
-	<form method="post" action="{{ route('signin') }}" class="form-horizontal">
-		<!-- CSRF Token -->
-		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-		<!-- Email -->
-		<div class="control-group{{ $errors->first('email', ' error') }}">
-			<label class="control-label" for="email">Email</label>
-			<div class="controls">
-				<input type="text" name="email" id="email" value="{{ Input::old('email') }}" />
-				{{ $errors->first('email', '<span class="help-block">:message</span>') }}
-			</div>
-		</div>
+<div class="login-form">
+    <div class="wrap">
+        <div class="content">
+            <h2 class="heading1">let's get in touch!</h2>
+        </div>
+        <form method="post" action="{{ route('signin') }}" >
+            <div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-		<!-- Password -->
-		<div class="control-group{{ $errors->first('password', ' error') }}">
-			<label class="control-label" for="password">Password</label>
-			<div class="controls">
-				<input type="password" name="password" id="password" value="" />
-				{{ $errors->first('password', '<span class="help-block">:message</span>') }}
-			</div>
-		</div>
+                <div class="errors">{{ $errors->first() }}</div>
+                <input name="email" placeholder="e-mail" type="text" class="textbox" value="{{ Input::old('email') }}" >&nbsp;&nbsp;
+                <input name="password" placeholder="пароль" type="password" class="textbox" >
+                <div class="clear"> </div>
+            </div>
 
-		<!-- Remember me -->
-		<div class="control-group">
-			<div class="controls">
-			<label class="checkbox">
-				<input type="checkbox" name="remember-me" id="remember-me" value="1" /> Remember me
-			</label>
-			</div>
-		</div>
+            <!-- Remember me -->
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember-me" id="remember-me" value="1" /> Запомнить меня
+                    </label>
+                </div>
+            </div>
 
-		<hr>
-
-		<!-- Form actions -->
-		<div class="control-group">
-			<div class="controls">
-				<a class="btn" href="{{ route('home') }}">Cancel</a>
-
-				<button type="submit" class="btn">Sign in</button>
-
-				<a href="{{ route('forgot-password') }}" class="btn btn-link">I forgot my password</a>
-			</div>
-		</div>
-	</form>
+            <div>
+                <input type="submit" class="btn" value="Войти">
+                <a class="btn" href="{{ route('home') }}">Отмена</a>
+                <a href="{{ route('forgot-password') }}" class="btn btn-link">Я забыл пароль</a>
+            </div>
+        </form>
+    </div>
+    <div class="clear"> </div>
 </div>
 @stop
